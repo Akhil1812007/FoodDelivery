@@ -1,19 +1,35 @@
+/* General reset to ensure consistent padding and margin across devices */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Header Styles */
 .header{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     border: 2px solid;
     padding: 10px;
     background-color: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Creates a shadow for the header */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
     transition: transform 0.3s ease;
+    flex-wrap: wrap; /* Ensures items don't overflow on small screens */
 }
 
 .header:hover {
-    transform: translateY(-5px); /* Slight movement on hover to enhance 3D effect */
+    transform: translateY(-5px); 
 }
 
 .header__nav-list{
     display: flex;
+    flex-wrap: wrap; /* Wraps nav items on small screens */
+    gap: 10px;
 }
 
 .header__logo{
@@ -23,70 +39,77 @@
 }
 
 .header__logo:hover {
-    transform: scale(1.2); /* Scale up the logo slightly when hovered */
+    transform: scale(1.2);
 }
 
 .header__nav-item{
     padding: 10px 20px;
     list-style-type: none;
     font-size: large;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); /* Adds shadow to text for depth */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4); 
     transition: color 0.3s ease, transform 0.3s ease;
     cursor: pointer;
 }
 
 .header__nav-item:hover {
-    color: #3498db; /* Change color on hover */
-    transform: translateZ(5px); /* Creates a subtle 3D pop-out effect */
+    color: #3498db; 
+    transform: translateZ(5px); 
     background-image: linear-gradient(92.83deg, #ed5aab 0, #f93a13 100%);
     border-radius: 80px;
 }
 
 .header__nav-item:active {
-    transform: scale(0.95); /* Slightly shrink on click */
+    transform: scale(0.95);
 }
 
-
+/* Responsive Card Design */
 .res-card{
-    
     margin: 5px;
     padding: 5px;
-    width: 300px;
+    width: 100%; /* Full width on mobile */
+    max-width: 300px; /* Restrict width on larger screens */
     background-color: rgb(198, 192, 198);
-   
+    transition: transform 0.3s ease;
+  
 }
+
 .res-card:hover{
     cursor: pointer;
     border: 2px solid;
-    transform: translateY(-5px); 
+    transform: translateY(-5px);
     background-image: linear-gradient(92.83deg, #5aedab 0, #edf913 100%);
-   
 }
+
 .food-image{
     max-width: 100%;
     max-height: 100%;
-    
-    object-fit: fill;
+    object-fit: cover;
 }
+
 .rate-time{
     display: flex;
     justify-content: space-between;
 }
+
 .cuisine{
     margin-top: 2px;
     margin-bottom: 2px;
 }
+
 .res-card-list{
     display: flex;
     flex-wrap: wrap;
    
 }
+
+/* Search Bar */
 .search{
     padding: 10px;
+    width: 100%; /* Responsive full width on mobile */
+    box-sizing: border-box; /* Ensure padding doesn't affect total width */
 }
 
-
-/* CSS */
+/* Filter Button */
 .filter-btn {
   align-items: center;
   appearance: none;
@@ -100,28 +123,14 @@
   display: inline-block;
   flex-direction: row;
   flex-shrink: 0;
-  font-family: Eina01,sans-serif;
   font-size: 16px;
   font-weight: 800;
   justify-content: center;
   line-height: 24px;
-  margin: 0;
-  min-height: 64px;
-  outline: none;
-  overflow: visible;
   padding: 19px 26px;
-  pointer-events: auto;
   position: relative;
   text-align: center;
-  text-decoration: none;
-  text-transform: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: middle;
   width: auto;
-  word-break: keep-all;
-  z-index: 0;
 }
 
 @media (min-width: 768px) {
@@ -130,6 +139,7 @@
   }
 }
 
+/* Button Hover and Active States */
 .filter-btn:before,
 .filter-btn:after {
   border-radius: 80px;
@@ -141,7 +151,6 @@
   display: block;
   height: 100%;
   left: 0;
-  overflow: hidden;
   position: absolute;
   top: 0;
   width: 100%;
@@ -155,7 +164,6 @@
   content: "";
   display: block;
   left: 4px;
-  overflow: hidden;
   position: absolute;
   right: 4px;
   top: 4px;
@@ -180,19 +188,50 @@
   color: #ccc;
 }
 
-.filter-btn:active:not(:disabled):before {
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
-}
-
-.filter-btn:active:not(:disabled):after {
-  background-image: linear-gradient(#541a0f 0, #0c0d0d 100%);
-  bottom: 4px;
-  left: 4px;
-  right: 4px;
-  top: 4px;
-}
-
 .filter-btn:disabled {
   cursor: default;
   opacity: .24;
+}
+
+/* Media Queries for Responsive Design */
+
+/* Small Devices (up to 600px) */
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column; /* Stack items vertically on small screens */
+        text-align: center;
+    }
+
+    .header__nav-list {
+        flex-direction: column; /* Stack nav items vertically */
+        align-items: center;
+    }
+
+    .header__logo {
+        height: 4em; /* Adjust logo size on mobile */
+    }
+
+    .filter-btn {
+        width: 100%; /* Full width for button on small screens */
+    }
+
+    .res-card {
+        width: 100%; /* Full width for cards */
+        max-width: 100%; /* Ensure cards don't exceed screen width */
+    }
+
+    .search {
+        width: 100%; /* Full width for search input */
+    }
+}
+
+/* Medium Devices (601px - 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .header {
+        padding: 15px;
+    }
+
+    .res-card {
+        max-width: 45%; /* Adjust card width to fit two in a row on tablets */
+    }
 }
