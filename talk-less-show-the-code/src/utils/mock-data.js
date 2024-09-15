@@ -12,7 +12,7 @@ const restuarants= [
         "Chinese",
         "South Indian"
       ],
-      "avgRating": 4.3,
+      "avgRating": 3.3,
       "parentId": "20328",
       "avgRatingString": "4.3",
       "totalRatingsString": "5.3K+",

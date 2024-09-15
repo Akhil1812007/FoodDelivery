@@ -1,10 +1,10 @@
 import { PICTURE_URL } from "../utils/contents";
 
 const ResCard=(probs)=>{
-    console.log(probs);
+ //   console.log(probs);
     const {restuarnt}=probs;
     const {name,cuisines,avgRating,sla,costForTwo,cloudinaryImageId}=restuarnt.info;
-    console.log(name +"name");
+   // console.log(name +"name");
     const {res}=probs;
     //console.log(res.name);
     return (
