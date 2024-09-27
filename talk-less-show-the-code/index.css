@@ -72,6 +72,7 @@ body {
 .res-card{
     margin: 5px;
     padding: 5px;
+    height: 500px;
     width: 100%; /* Full width on mobile */
     max-width: 300px; /* Restrict width on larger screens */
     background-color: rgb(217, 205, 217);

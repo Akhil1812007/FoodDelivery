@@ -2,7 +2,6 @@
   "name": "talk-less-show-the-code",
   "version": "1.0.0",
   "description": "building food delivery application",
-
   "scripts": {
     "test": "jest",
     "start": "parcel index.html",
@@ -23,7 +22,8 @@
   "homepage": "https://github.com/Akhil1812007/react#readme",
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2"
   },
   "devDependencies": {
     "parcel": "^2.12.0",

@@ -3,6 +3,7 @@ import {useState,useEffect} from "react"
 import { SWIGGY_API } from "../utils/contents";
 import Shimmer from "./Shimmer";
 import restuarants from "../utils/mock-data"
+import { Link } from "react-router-dom";
 
 
 const ResBody=()=>{
@@ -22,7 +23,7 @@ const ResBody=()=>{
             const response = await fetch(SWIGGY_API);
             const responseData = await response.json();
             //console.log(responseData.data?.cards[4].card.card.gridElements);
-            const resList=responseData.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+            const resList=responseData.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
             console.log(resList);
             setListAllRestuarants(resList);
             setSearchRestuarants(resList);
@@ -78,7 +79,7 @@ const ResBody=()=>{
                 searchRestuarants.map(
                     (res)=>{
                         
-                        return(<ResCard key={res.info.id} restuarnt={res}/>);
+                        return(<Link to={"/restaurant/"+res.info.id} key={res.info.id}><ResCard  restuarnt={res}/></Link>);
                     }
                 )
                 
